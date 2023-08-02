@@ -1,0 +1,26 @@
+_BASE_: "Base-RCNN-FPN.yaml"
+MODEL:
+  WEIGHTS: "model_weights/consistency_hand_model.pth"
+  MASK_ON: False
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    BATCH_SIZE_PER_IMAGE: 512
+    NUM_CLASSES: 1
+    NMS_THRESH_TEST: 0.5
+    SCORE_THRESH_TEST: 0.0
+SOLVER:
+  STEPS: (210000, 250000)
+  IMS_PER_BATCH: 4
+  BASE_LR: 0.000001
+  WARMUP_ITERS: 5
+  MAX_ITER: 200000
+  CHECKPOINT_PERIOD: 2000
+DATASETS:
+  TRAIN: ("hands_test",)
+  TEST: ("hands_test",)
+TEST:
+  EVAL_PERIOD: 1000
+DATALOADER:
+  NUM_WORKERS: 2
+OUTPUT_DIR: "outputs/evaluation_outputs"

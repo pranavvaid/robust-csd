@@ -1,0 +1,26 @@
+_BASE_: "Base-RCNN-FPN.yaml"
+MODEL:
+  WEIGHTS: "model_weights/egohands_pretrained.pth"
+  MASK_ON: False
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    BATCH_SIZE_PER_IMAGE: 512
+    NUM_CLASSES: 1
+    NMS_THRESH_TEST: 0.5
+    SCORE_THRESH_TEST: 0.9
+SOLVER:
+  STEPS: (210000, 250000)
+  IMS_PER_BATCH: 1
+  BASE_LR: 0.00025
+  MAX_ITER: 40000
+  CHECKPOINT_PERIOD: 1000
+DATASETS:
+  TRAIN: ("hands_train",)
+  TEST: ("hands_val",)
+TEST:
+  EVAL_PERIOD: 1000
+DATALOADER:
+  NUM_WORKERS: 2
+OUTPUT_DIR: "outputs/consistency_model"
+SEED: 42
