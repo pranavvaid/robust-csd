@@ -43,7 +43,7 @@ python evaluate_model.py
 
 
 ## Model Weights
-Weights for our trained model from the paper can be found at [this link](https://drive.google.com/file/d/1uZcqQRhdkJyycyoRPgCEU3lDgoA94gUI/view?usp=sharing). 
+Weights for our trained model from the paper can be found at [this link](https://drive.google.com/file/d/1au573e8Zl6oL4Bn_WA8ow_NXpiOANiAh/view?usp=sharing). 
 
 ## AVOS
 To get access to the AVOS dataset, please contact the authors of [the original work in which it was introduced](https://arxiv.org/abs/2112.07219).   
